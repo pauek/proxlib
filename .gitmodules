@@ -1,3 +1,6 @@
 [submodule "BigInt/tomsfastmath"]
 	path = BigInt/tomsfastmath
 	url = github:libtom/tomsfastmath
+[submodule "Windows/microui"]
+	path = Windows/microui
+	url = github:rxi/microui.git
