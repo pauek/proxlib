@@ -1,4 +1,4 @@
-# PRO1 and PRO2 library
+# `prolib`: PRO1 and PRO2 library
 
 This is a C++ library to support teaching [PRO1](https://pro1.cs.upc.edu) and [PRO2](https://pro2.cs.upc.edu) courses, at [FIB](https://fib.upc.edu).
 
