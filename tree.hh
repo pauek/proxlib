@@ -8,9 +8,9 @@
 namespace pro2 {
 
 /**
- * @file BinTree.hh
- * @class BinTree
- * @brief A class representing binary trees
+ * @file Tree.hh
+ * @class Tree
+ * @brief A class representing a tree with any number of children.
  */
 template <typename T>
 class Tree {
