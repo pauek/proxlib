@@ -60,17 +60,22 @@ class BinTreeWriter {
 			return;
 		}
 
-		// Write left
 		pending_.push_back(Branch_(0, 2));
 		write(left);
 		pending_.pop_back();
 
-		// Write right
 		pending_.push_back(Branch_(1, 2));
 		write(right);
 		pending_.pop_back();
 	}
 };
+
+template <typename T>
+std::ostream& operator<<(std::ostream& o, BinTree<T> tree) {
+	BinTreeWriter<T> writer(o);
+	writer.write(tree);
+	return o;
+}
 
 }  // namespace pro2
 

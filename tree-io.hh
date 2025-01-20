@@ -61,6 +61,13 @@ class TreeWriter {
 	}
 };
 
+template<typename T>
+std::ostream& operator<<(std::ostream& o, Tree<T> tree) {
+	TreeWriter<T> writer(o);
+	writer.write(tree);
+	return o;
+}
+
 }  // namespace pro2
 
 #endif
