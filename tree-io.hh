@@ -5,7 +5,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "bintree.hh"
+#include "tree.hh"
 
 namespace pro2 {
 
@@ -53,22 +53,11 @@ class TreeWriter {
 
 		out_ << tree.value() << std::endl;
 
-		Tree<T> left = tree.left();
-		Tree<T> right = tree.right();
-
-		if (left.empty() and right.empty()) {
-			return;
+		for (int i = 0; i < tree.num_children(); i++) {
+			pending_.push_back(Branch_(0, tree.num_children() - i));
+			write(tree.child(i));
+			pending_.pop_back();
 		}
-
-		// Write left
-		pending_.push_back(Branch_(0, 2));
-		write(left);
-		pending_.pop_back();
-
-		// Write right
-		pending_.push_back(Branch_(1, 2));
-		write(right);
-		pending_.pop_back();
 	}
 };
 
