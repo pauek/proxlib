@@ -4,3 +4,6 @@
 [submodule "Windows/microui"]
 	path = Windows/microui
 	url = github:rxi/microui.git
+[submodule "Windows/fenster"]
+	path = Windows/fenster
+	url = github:zserge/fenster.git
