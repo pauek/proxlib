@@ -1,9 +1,12 @@
 [submodule "BigInt/tomsfastmath"]
-	path = BigInt/tomsfastmath
+	path = vendor/tomsfastmath
 	url = github:libtom/tomsfastmath
 [submodule "Windows/microui"]
-	path = Windows/microui
+	path = vendor/microui
 	url = github:rxi/microui.git
 [submodule "Windows/fenster"]
-	path = Windows/fenster
+	path = vendor/fenster
 	url = github:zserge/fenster.git
+[submodule "vendor/doctest"]
+	path = vendor/doctest
+	url = github:doctest/doctest
