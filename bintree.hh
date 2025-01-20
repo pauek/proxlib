@@ -2,6 +2,9 @@
 #define BINTREE_HH
 
 #include <cassert>
+#include <memory>
+
+namespace pro2 {
 
 /**
  * @file BinTree.hh
@@ -15,23 +18,23 @@ class BinTree {
 	 * @brief Struct that holds the node's information
 	 */
 	struct Node_ {
-		T				  x;
-		shared_ptr<Node_> left;
-		shared_ptr<Node_> right;
+		T					   x;
+		std::shared_ptr<Node_> left;
+		std::shared_ptr<Node_> right;
 
-		Node_(const T& x, shared_ptr<Node_> left, shared_ptr<Node_> right)
+		Node_(const T& x, std::shared_ptr<Node_> left, std::shared_ptr<Node_> right)
 			: x(x), left(left), right(right) {}
 	};
 
 	/**
 	 * @brief Pointer to the node of the tree
 	 */
-	shared_ptr<Node_> pnode_;
+	std::shared_ptr<Node_> pnode_;
 
 	/**
 	 * @brief Constructs a tree from a node pointer.
 	 */
-	BinTree(shared_ptr<Node_> pnode) : pnode_(pnode) {}
+	BinTree(std::shared_ptr<Node_> pnode) : pnode_(pnode) {}
 
    public:
 	/**
@@ -39,14 +42,14 @@ class BinTree {
 	 */
 	BinTree() : pnode_(nullptr) {}
 
-    /**
-     * @brief Constructs a tree as a copy of another tree. Θ(1).
-     */
+	/**
+	 * @brief Constructs a tree as a copy of another tree. Θ(1).
+	 */
 	BinTree(const BinTree& t) { pnode_ = t.pnode_; }
 
-    /**
-     * @brief Assigns the tree t to this tree. Θ(1).
-     */
+	/**
+	 * @brief Assigns the tree t to this tree. Θ(1).
+	 */
 	BinTree& operator=(const BinTree& t) {
 		pnode_ = t.pnode_;
 		return *this;
@@ -55,13 +58,13 @@ class BinTree {
 	/**
 	 * @brief Constructs a tree with a value x and no subtrees. Θ(1).
 	 */
-	explicit BinTree(const T& x) { pnode_ = make_shared<Node_>(x, nullptr, nullptr); }
+	explicit BinTree(const T& x) { pnode_ = std::make_shared<Node_>(x, nullptr, nullptr); }
 
 	/**
 	 * @brief Constructs a tree with a value x and two subtrees left and right. Θ(1).
 	 */
 	explicit BinTree(const T& x, const BinTree& left, const BinTree& right) {
-		pnode_ = make_shared<Node_>(x, left.pnode_, right.pnode_);
+		pnode_ = std::make_shared<Node_>(x, left.pnode_, right.pnode_);
 	}
 
 	/**
@@ -93,5 +96,7 @@ class BinTree {
 		return pnode_->x;
 	}
 };
+
+}  // namespace pro2
 
 #endif
