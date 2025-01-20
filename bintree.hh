@@ -12,7 +12,7 @@ namespace pro2 {
  * @brief A class representing binary trees
  */
 template <typename T>
-class BinTree {
+class Tree {
    private:
 	/**
 	 * @brief Struct that holds the node's information
@@ -34,37 +34,37 @@ class BinTree {
 	/**
 	 * @brief Constructs a tree from a node pointer.
 	 */
-	BinTree(std::shared_ptr<Node_> pnode) : pnode_(pnode) {}
+	Tree(std::shared_ptr<Node_> pnode) : pnode_(pnode) {}
 
    public:
 	/**
 	 * @brief Constructs an empty tree. Θ(1).
 	 */
-	BinTree() : pnode_(nullptr) {}
+	Tree() : pnode_(nullptr) {}
 
 	/**
 	 * @brief Constructs a tree as a copy of another tree. Θ(1).
 	 */
-	BinTree(const BinTree& t) { pnode_ = t.pnode_; }
-
-	/**
-	 * @brief Assigns the tree `t` to this tree, and returns the object itself. Θ(1).
-	 */
-	BinTree& operator=(const BinTree& t) {
-		pnode_ = t.pnode_;
-		return *this;
-	}
+	Tree(const Tree& t) { pnode_ = t.pnode_; }
 
 	/**
 	 * @brief Constructs a tree with a value `x` and no subtrees. Θ(1).
 	 */
-	explicit BinTree(const T& x) { pnode_ = std::make_shared<Node_>(x, nullptr, nullptr); }
+	explicit Tree(const T& x) { pnode_ = std::make_shared<Node_>(x, nullptr, nullptr); }
 
 	/**
 	 * @brief Constructs a tree with a value `x` and two subtrees `left` and `right`. Θ(1).
 	 */
-	explicit BinTree(const T& x, const BinTree& left, const BinTree& right) {
+	explicit Tree(const T& x, const Tree& left, const Tree& right) {
 		pnode_ = std::make_shared<Node_>(x, left.pnode_, right.pnode_);
+	}
+
+	/**
+	 * @brief Assigns the tree `t` to this tree, and returns the object itself. Θ(1).
+	 */
+	Tree& operator=(const Tree& t) {
+		pnode_ = t.pnode_;
+		return *this;
 	}
 
 	/**
@@ -75,7 +75,7 @@ class BinTree {
 	/**
 	 * @brief Returns the left subtree of this tree. Aborts if empty. Θ(1).
 	 */
-	BinTree left() const {
+	Tree left() const {
 		assert(not empty());
 		return BinTree(pnode_->left);
 	}
@@ -83,7 +83,7 @@ class BinTree {
 	/**
 	 * @brief Returns the right subtree of this tree. Aborts if empty. Θ(1).
 	 */
-	BinTree right() const {
+	Tree right() const {
 		assert(not empty());
 		return BinTree(pnode_->right);
 	}
@@ -93,7 +93,7 @@ class BinTree {
 	 */
 	const T& value() const {
 		assert(not empty());
-		return pnode_->x;
+		return pnode_->value;
 	}
 };
 

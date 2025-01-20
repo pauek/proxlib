@@ -30,7 +30,7 @@ class BinTreeWriter {
    public:
 	BinTreeWriter(std::ostream& out) : out_(out) {}
 
-	void write(BinTree<T> tree) {
+	void write(Tree<T> tree) {
 		for (int i = 0; i < pending_.size(); i++) {
 			bool	 is_last = i == pending_.size() - 1;
 			Branch_& pend = pending_[i];
@@ -53,8 +53,8 @@ class BinTreeWriter {
 
 		out_ << tree.value() << std::endl;
 
-		BinTree<T> left = tree.left();
-		BinTree<T> right = tree.right();
+		Tree<T> left = tree.left();
+		Tree<T> right = tree.right();
 
 		if (left.empty() and right.empty()) {
 			return;

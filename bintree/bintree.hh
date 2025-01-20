@@ -76,7 +76,7 @@ class bintree {
 		if (empty()) {
 			throw std::runtime_error("Cannot get value of an empty tree");
 		}
-		return p->x;
+		return p->value;
 	}
 
 	// writing operator <<

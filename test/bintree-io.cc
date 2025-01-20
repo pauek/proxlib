@@ -10,14 +10,14 @@ using namespace std;
 TEST_CASE("Write empty BinTree") {
 	ostringstream	   oss;
 	BinTreeWriter<int> writer(oss);
-	writer.write(BinTree<int>());
+	writer.write(Tree<int>());
 	CHECK(oss.str() == "#\n");
 }
 
 TEST_CASE("Write BinTree with left branch") {
 	ostringstream	   oss;
 	BinTreeWriter<int> writer(oss);
-	writer.write(BinTree<int>(1, BinTree<int>(2), BinTree<int>()));
+	writer.write(Tree<int>(1, Tree<int>(2), Tree<int>()));
 	CHECK(oss.str() ==
 		  "1\n"
 		  "|-- 2\n"
@@ -27,7 +27,7 @@ TEST_CASE("Write BinTree with left branch") {
 TEST_CASE("Write BinTree with right branch") {
 	ostringstream		oss;
 	BinTreeWriter<char> writer(oss);
-	writer.write(BinTree<char>('a', BinTree<char>(), BinTree<char>('b')));
+	writer.write(Tree<char>('a', Tree<char>(), Tree<char>('b')));
 	CHECK(oss.str() ==
 		  "a\n"
 		  "|-- #\n"
@@ -37,7 +37,7 @@ TEST_CASE("Write BinTree with right branch") {
 TEST_CASE("Write BinTree with left and right branch") {
 	ostringstream		  oss;
 	BinTreeWriter<string> writer(oss);
-	writer.write(BinTree<string>("ha", BinTree<string>("he"), BinTree<string>("ho")));
+	writer.write(Tree<string>("ha", Tree<string>("he"), Tree<string>("ho")));
 	CHECK(oss.str() ==
 		  "ha\n"
 		  "|-- he\n"
