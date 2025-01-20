@@ -1,0 +1,3 @@
+[submodule "BigInt/tomsfastmath"]
+	path = BigInt/tomsfastmath
+	url = github:libtom/tomsfastmath
