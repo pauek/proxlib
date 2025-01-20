@@ -3,7 +3,7 @@
 #include "../bintree.hh"
 using namespace pro2;
 
-TEST_CASE("bintree") {
+TEST_CASE("BinTree") {
 	BinTree<int> t;
 	CHECK(t.empty());
 

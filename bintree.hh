@@ -48,7 +48,7 @@ class BinTree {
 	BinTree(const BinTree& t) { pnode_ = t.pnode_; }
 
 	/**
-	 * @brief Assigns the tree t to this tree. Θ(1).
+	 * @brief Assigns the tree `t` to this tree, and returns the object itself. Θ(1).
 	 */
 	BinTree& operator=(const BinTree& t) {
 		pnode_ = t.pnode_;
@@ -56,24 +56,24 @@ class BinTree {
 	}
 
 	/**
-	 * @brief Constructs a tree with a value x and no subtrees. Θ(1).
+	 * @brief Constructs a tree with a value `x` and no subtrees. Θ(1).
 	 */
 	explicit BinTree(const T& x) { pnode_ = std::make_shared<Node_>(x, nullptr, nullptr); }
 
 	/**
-	 * @brief Constructs a tree with a value x and two subtrees left and right. Θ(1).
+	 * @brief Constructs a tree with a value `x` and two subtrees `left` and `right`. Θ(1).
 	 */
 	explicit BinTree(const T& x, const BinTree& left, const BinTree& right) {
 		pnode_ = std::make_shared<Node_>(x, left.pnode_, right.pnode_);
 	}
 
 	/**
-	 * @brief Tells if this tree is empty. Θ(1).
+	 * @brief Returns `true` if this tree is empty, `false` otherwise. Θ(1).
 	 */
 	bool empty() const { return pnode_ == nullptr; }
 
 	/**
-	 * @brief Returns the left subtree of this tree (cannot be empty). Θ(1).
+	 * @brief Returns the left subtree of this tree. Aborts if empty. Θ(1).
 	 */
 	BinTree left() const {
 		assert(not empty());
@@ -81,7 +81,7 @@ class BinTree {
 	}
 
 	/**
-	 * @brief Returns the right subtree of this tree (cannot be empty). Θ(1).
+	 * @brief Returns the right subtree of this tree. Aborts if empty. Θ(1).
 	 */
 	BinTree right() const {
 		assert(not empty());
@@ -89,7 +89,7 @@ class BinTree {
 	}
 
 	/**
-	 * @brief Returns the value of this tree (cannot be empty). Θ(1).
+	 * @brief Returns the value of this tree. Aborts if empty. Θ(1).
 	 */
 	const T& value() const {
 		assert(not empty());
